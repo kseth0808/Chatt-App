@@ -13,8 +13,6 @@ function Message() {
       <Messages/>
       <Messages/>
       <Messages/>
-      <Messages/>
-      <Messages/>
     </div>
   )
 }

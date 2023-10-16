@@ -1,19 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {getAuth} from "firebase/auth"
-import {getstorage} from "firebase/storage"
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAnYCs8owsYdhjhRfNfrK5qJLf1BR1_r1w",
-  authDomain: "chat-566be.firebaseapp.com",
-  projectId: "chat-566be",
-  storageBucket: "chat-566be.appspot.com",
-  messagingSenderId: "114983453159",
-  appId: "1:114983453159:web:f10858739275b57feffd42",
-  measurementId: "G-0LHR8Q1HFS"
+  apiKey: "your-api-key",
+  authDomain: "your-auth-domain",
+  projectId: "your-project-id",
+  storageBucket: "your-storage-bucket",
+  messagingSenderId: "your-messaging-sender-id",
+  appId: "your-app-id",
+  measurementId: "your-measurement-id"
 };
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const auth = getAuth()
-export const storage = getstorage();
+export const Auth = getAuth(app); 
+export const provider = new GoogleAuthProvider();
+export const storage = getStorage(app);
