@@ -1,31 +1,19 @@
 import React, { useState } from 'react'; 
 import avtar from "../imgs/addAvatar.png"
 import { useNavigate } from 'react-router-dom'
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { getAuth } from "firebase/auth"; 
-import { getStorage } from "firebase/storage";
-import  { Auth }  from '../firebase';
-
 
 function Register() {
   const [displayName, setDisplayName] = useState(""); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleSubmit =  (e) =>{
-    e.preventDefault();
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user)
-        navigate("/")
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-  }
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    const name = e.target[0].value
+    const email = e.target[1].value
+    const password = e.target[2].value
+    const avtar = e.target[3].files[0]
+    }
 
   return (
     <div className="formcontainer">
